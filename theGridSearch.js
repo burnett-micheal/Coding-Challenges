@@ -1,22 +1,6 @@
 // Link: https://www.hackerrank.com/challenges/the-grid-search/problem
 
 function gridSearch(grid, pattern) {
-    const getAllOccurrencesOnRow = (indexOfRow, patternToSearchFor) => {
-        let row = grid[indexOfRow];
-        const occurrences = [];
-        for(let j = 0; j < row.length - patternToSearchFor.length + 1; j++) {
-            if(patternToSearchFor === row.substring(j, j + patternToSearchFor.length)) {
-            occurrences.push(j);
-            }
-        }
-        return occurrences;
-    }
-    
-    const checkOccurrenceOnRow = (indexOfRow, patternToSearchFor, startIndex) => {
-        let row = grid[indexOfRow];
-        return row.substring(startIndex, startIndex + patternToSearchFor.length) === patternToSearchFor;
-    }
-    
     /*
         I'm going to do my best to put into words what I've done here. 
         So the challenge was to find out if a 2d pattern exists in a 2d grid.
@@ -43,6 +27,22 @@ function gridSearch(grid, pattern) {
          I check row 3, "5988" index 0 "59" for the row 2 pattern "98". Its not there so I move on.
          I check row 3, "5988" index 1 "98" for the row 2 pattern "98". It is there so break out of the loop and return YES.
     */
+    
+    const getAllOccurrencesOnRow = (indexOfRow, patternToSearchFor) => {
+        let row = grid[indexOfRow];
+        const occurrences = [];
+        for(let j = 0; j < row.length - patternToSearchFor.length + 1; j++) {
+            if(patternToSearchFor === row.substring(j, j + patternToSearchFor.length)) {
+            occurrences.push(j);
+            }
+        }
+        return occurrences;
+    }
+    
+    const checkOccurrenceOnRow = (indexOfRow, patternToSearchFor, startIndex) => {
+        let row = grid[indexOfRow];
+        return row.substring(startIndex, startIndex + patternToSearchFor.length) === patternToSearchFor;
+    }
 
     let foundIt = false;
     for(let i = 0; i < grid.length - pattern.length + 1; i++) { 
