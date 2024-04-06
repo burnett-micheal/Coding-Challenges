@@ -120,7 +120,7 @@ function postOrder(root) {
     print the result array
   */
   
-	const arr = [];
+  const arr = [];
   let curNode = root;
   const nodeChain = [];
   const newNodeLink = (node, traversed) => { nodeChain.unshift({ node, traversed }); }
