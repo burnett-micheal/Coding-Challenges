@@ -57,7 +57,7 @@ function topView(root) {
     Object [nodeDistance] [nodeHeight] = nodeData;
     
     After that I iterated over each nodeDistance, from lowest to highest, and got the lowest node height available, 
-    starting from the lowest possible (Math.abs(nodeDistance)), and pushed the data to the array.
+    starting from the lowest height possible (Math.abs(nodeDistance)), and pushed the data to the array.
     
     And finally, I printed the array.
   */
