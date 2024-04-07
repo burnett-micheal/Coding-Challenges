@@ -29,9 +29,42 @@ function insertNode(root, data) {
 
 
 function topView(root) {
+  
+  /* 
+    So in this challenge we want to get the top view of a binary tree.
+    
+      1
+       \
+        2
+         \
+          5
+         / \
+        3   6
+         \
+          4
+          
+    In this case the top-view is 1, 2, 5, 6. Explained below.
+    
+    The top view is essentially an array of the lowest heights, at each distance from the root, going from left to right.
+    
+    The distance from the root is -1 if its 1 to the left, 1 if its 1 to the right, and 0 if it is the root.
+    
+    The height is the amount of times we had to travel from the root to get to the current node. 
+    So in our current example: 2, would be 1 height, bcz we travelled from the root: 1, to 2. So 1 times travelled.
+    On the other hand 4 would be 4 height, bcz we travelled 4 times from the root: 1 to 2, 2 to 5, 5 to 3, and 3 to 4.
+    
+    So what I did to get the answer was traverse all the nodes in the tree, storing there data in a 2d object.
+    Object [nodeDistance] [nodeHeight] = nodeData;
+    
+    After that I iterated over each nodeDistance, from lowest to highest, and got the lowest node height available, 
+    starting from the lowest possible (Math.abs(nodeDistance)), and pushed the data to the array.
+    
+    And finally, I printed the array.
+  */
+  
   let curNode = root;
   const unrightedNodes = [];
-  const nodesDis = {"0": { "0": [root.data] }};
+  const nodesDis = {"0": { "0": root.data }};
   let curHeight = 0;
   let curDis = 0;
   let minDis = 0;
@@ -129,3 +162,4 @@ process.stdin.on("data", function (input) {
 process.stdin.on("end", function () {
    processData(_input);
 });
+
