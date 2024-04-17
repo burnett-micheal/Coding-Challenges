@@ -12,11 +12,7 @@ var fizzBuzz = function(n) {
             }
         }
 
-        if (result === '') {
-            result = `${num}`;
-        }
-
-        return result;
+        return result === '' ? `${num}` : result;
     }
 
     const resultArr = [];
