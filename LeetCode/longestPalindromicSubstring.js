@@ -8,7 +8,6 @@ var longestPalindrome = function(s) {
 
     let maxPal = s[0];
 
-    
     for(let i = 0; i < s.length; i++) {
         // Loop over every character in s, getting the longest palindrome we can centered on that character
         // We then compare that palindrome with our longest palindrome so far, and set maxPal to the longest
